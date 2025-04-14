@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhaddadi <mhaddadi@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 15:20:01 by mhaddadi          #+#    #+#             */
-/*   Updated: 2025/04/09 19:03:23 by mhaddadi         ###   ########.fr       */
+/*   Created: 2025/04/14 16:14:09 by mhaddadi          #+#    #+#             */
+/*   Updated: 2025/04/14 16:43:25 by mhaddadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <stddef.h>
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	unsigned char *temp;
+	temp = (unsigned char *) s;
+	while (n > 0)
 	{
-		return (c);
+		*(temp++) = (unsigned char) c;
+		n--;
 	}
-	return (0);
+	return (s);
 }
 /*
-
 #include <stdio.h>
-
 int main(void)
 {
-	printf("This is a alphanum 'a' : %d", ft_isalpha(65));
-
+	void *test[10];
+	
+	
+	// test = "dsdsdsd";
+	void *result;
+	result = ft_memset(test, 67, 8);
+	//unsigned char *temp = (unsigned char *) test;
+	printf("This is the output: %s and this is the spected value: CCCCCCCC",(unsigned char*) result);
 }
 */

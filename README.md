@@ -5,12 +5,12 @@
 |------------|------|----------------|
 | isalpha    | [x]  |                |
 | isdigit    | [x]  |                |
-| isalnum    | [ ]  |                |
-| isascii    | [ ]  |                |
-| isprint    | [ ]  |                |
-| strlen     | [ ]  |                |
-| memset     | [ ]  |                |
-| bzero      | [ ]  |                |
+| isalnum    | [x]  |                |
+| isascii    | [x]  |                |
+| isprint    | [x]  |                |
+| strlen     | [x]  |                |
+| memset     | [x]  |                |
+| bzero      | [0]  |                |
 | memcpy     | [ ]  |                |
 | memmove    | [ ]  |                |
 | strlcpy    | [ ]  |                |
@@ -23,5 +23,5 @@
 | memchr     | [ ]  |                |
 | memcmp     | [ ]  |                |
 | strnstr    | [ ]  |                |
-| atoi       | [ ]  |                |
+| atoi       | [x]  |                |
 

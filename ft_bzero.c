@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhaddadi <mhaddadi@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 19:36:57 by mhaddadi          #+#    #+#             */
-/*   Updated: 2025/04/09 19:38:52 by mhaddadi         ###   ########.fr       */
+/*   Created: 2025/04/14 17:10:09 by mhaddadi          #+#    #+#             */
+/*   Updated: 2025/04/14 17:11:42 by mhaddadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <stddef.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= 30 && c <= 39)
+	char *temp;
+	temp =  (char *) s;
+	while (n > 0)
 	{
-		return (c);
+		*(temp++) = 0;
+		n--;
 	}
-	return (0);
+}
+
+#include <stdio.h>
+int main(void)
+{
+	char test[11];
+		
+	snprintf(test, sizeof(test), "DDDDDDDDDD");
+
+	ft_bzero(test, 5);
+	//unsigned char *temp = (unsigned char *) test;
+	printf("This is the output: %s and this is the spected value: DD",(char*) test);
 }
