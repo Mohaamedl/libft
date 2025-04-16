@@ -1,8 +1,8 @@
 #include <stddef.h>
 #include <string.h>
 
-size_t strlcat(char *dest, const char *src, size_t n) {
-  sizt_t i;
+size_t ft_strlcat(char *dest, const char *src, size_t n) {
+  size_t i;
   size_t len;
 
   if (n == 0)
@@ -16,4 +16,14 @@ size_t strlcat(char *dest, const char *src, size_t n) {
     dest[len + i] = src[i];
   }
   return (i);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+    char dest[6] = "batata";
+    char src[6] = "banana";
+    ft_strlcat(dest,src, 12);
+    printf("adding batata to banana, got : %s", dest);
 }
