@@ -8,27 +8,27 @@
 /**
  * @brief Checks for an alphabetic character.
  */
-int		ft_isalpha(int c);
+int	ft_isalpha(int c);
 
 /**
  * @brief Checks for a digit (0 through 9).
  */
-int		ft_isdigit(int c);
+int	ft_isdigit(int c);
 
 /**
  * @brief Checks for an alphanumeric character.
  */
-int		ft_isalnum(int c);
+int	ft_isalnum(int c);
 
 /**
  * @brief Checks whether c is a 7-bit unsigned char value that fits into the ASCII character set.
  */
-int		ft_isascii(int c);
+int	ft_isascii(int c);
 
 /**
  * @brief Checks for any printable character including space.
  */
-int		ft_isprint(int c);
+int	ft_isprint(int c);
 
 /**
  * @brief Calculates the length of the string s, excluding the terminating null byte.
@@ -68,12 +68,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 /**
  * @brief Converts a lowercase letter to uppercase.
  */
-int		ft_toupper(int c);
+int	ft_toupper(int c);
 
 /**
  * @brief Converts an uppercase letter to lowercase.
  */
-int		ft_tolower(int c);
+int	ft_tolower(int c);
 
 /**
  * @brief Locates the first occurrence of c in the string s.
@@ -88,7 +88,7 @@ char	*ft_strrchr(const char *s, int c);
 /**
  * @brief Compares at most the first n bytes of s1 and s2.
  */
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @brief Scans memory area s for the byte c.
@@ -98,7 +98,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 /**
  * @brief Compares the first n bytes of the memory areas s1 and s2.
  */
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /**
  * @brief Locates the first occurrence of the null-terminated string needle in haystack, where not more than len characters are searched.
@@ -108,7 +108,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 /**
  * @brief Converts the initial portion of the string pointed to by str to int.
  */
-int		ft_atoi(const char *str);
+int	ft_atoi(const char *str);
 
 /**
  * @brief Allocates memory for an array of count elements of size bytes each and returns a pointer to the allocated memory.
@@ -176,4 +176,3 @@ void	ft_putendl_fd(char *s, int fd);
  * @brief Outputs the integer n to the given file descriptor.
  */
 void	ft_putnbr_fd(int n, int fd);
-

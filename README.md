@@ -164,12 +164,12 @@ Functions to be implemented once the mandatory part is completed. These typicall
 - [x] Implement `ft_strchr`
 - [x] Implement `ft_strrchr`
 - [x] Implement `ft_strncmp`
-- [ ] Implement `ft_memchr`
-- [ ] Implement `ft_memcmp`
-- [ ] Implement `ft_strnstr`
+- [x] Implement `ft_memchr`
+- [x] Implement `ft_memcmp`
+- [x] Implement `ft_strnstr`
 - [x] Implement `ft_atoi`
-- [ ] Implement `ft_calloc`
-- [ ] Implement `ft_strdup`
+- [x] Implement `ft_calloc`
+- [x] Implement `ft_strdup`
 
 ### Additional Functions
 - [ ] Implement `ft_substr`
@@ -196,7 +196,7 @@ Functions to be implemented once the mandatory part is completed. These typicall
 - [ ] Implement `ft_lstmap`
 
 ### Final Steps
-- [ ] Test all functions with libft-unit-test / moulinette
+- [ ] Test all functions with libft-unit-test / francinette (?)
 - [ ] Ensure Norm compliance
 - [ ] Validate memory usage with valgrind
 - [ ] Clean up code and comments
