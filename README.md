@@ -172,27 +172,27 @@ Functions to be implemented once the mandatory part is completed. These typicall
 - [x] Implement `ft_strdup`
 
 ### Additional Functions
-- [ ] Implement `ft_substr`
-- [ ] Implement `ft_strjoin`
-- [ ] Implement `ft_strtrim`
-- [ ] Implement `ft_split`
-- [ ] Implement `ft_itoa`
+- [x] Implement `ft_substr`
+- [x] Implement `ft_strjoin`
+- [x] Implement `ft_strtrim`
+- [x] Implement `ft_split`
+- [x] Implement `ft_itoa`
 - [ ] Implement `ft_strmapi`
 - [ ] Implement `ft_striteri`
-- [ ] Implement `ft_putchar_fd`
-- [ ] Implement `ft_putstr_fd`
-- [ ] Implement `ft_putendl_fd`
-- [ ] Implement `ft_putnbr_fd`
+- [x] Implement `ft_putchar_fd`
+- [x] Implement `ft_putstr_fd`
+- [x] Implement `ft_putendl_fd`
+- [x] Implement `ft_putnbr_fd`
 
 ### Bonus (Linked List)
-- [ ] Implement `ft_lstnew`
-- [ ] Implement `ft_lstadd_front`
-- [ ] Implement `ft_lstsize`
-- [ ] Implement `ft_lstlast`
-- [ ] Implement `ft_lstadd_back`
-- [ ] Implement `ft_lstdelone`
-- [ ] Implement `ft_lstclear`
-- [ ] Implement `ft_lstiter`
+- [x] Implement `ft_lstnew`
+- [x] Implement `ft_lstadd_front`
+- [x] Implement `ft_lstsize`
+- [x] Implement `ft_lstlast`
+- [x] Implement `ft_lstadd_back`
+- [x] Implement `ft_lstdelone`
+- [x] Implement `ft_lstclear`
+- [x] Implement `ft_lstiter`
 - [ ] Implement `ft_lstmap`
 
 ### Final Steps
@@ -201,5 +201,3 @@ Functions to be implemented once the mandatory part is completed. These typicall
 - [ ] Validate memory usage with valgrind
 - [ ] Clean up code and comments
 - [ ] Prepare for submission
-
-

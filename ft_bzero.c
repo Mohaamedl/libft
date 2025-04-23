@@ -10,19 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	char *temp;
-	temp =  (char *) s;
+	char	*temp;
+	
+	temp = (char *) s;
 	while (n > 0)
 	{
 		*(temp++) = 0;
 		n--;
 	}
 }
-
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -34,3 +35,4 @@ int main(void)
 	//unsigned char *temp = (unsigned char *) test;
 	printf("This is the output: %s and this is the spected value: DD",(char*) test);
 }
+*/

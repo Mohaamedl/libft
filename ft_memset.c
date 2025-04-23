@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char *temp;
+	unsigned char	*temp;
+
 	temp = (unsigned char *) s;
 	while (n > 0)
 	{
@@ -34,6 +35,7 @@ int main(void)
 	void *result;
 	result = ft_memset(test, 67, 8);
 	//unsigned char *temp = (unsigned char *) test;
-	printf("This is the output: %s and this is the spected value: CCCCCCCC",(unsigned char*) result);
+	printf("This is the output: %s and this is the spected value: 
+	CCCCCCCC",(unsigned char*) result);
 }
 */
