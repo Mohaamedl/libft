@@ -1,48 +1,47 @@
 # **************************************************************************** #
 #                              LIBFT MAKEFILE                                  #
 # **************************************************************************** #
-
 # Compiler and flags
-CC      := gcc
-CFLAGS  := -Wall -Wextra -Werror
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
-# Project name
-NAME    := libft.a
+# Directories
+SRCDIR = src
+OBJDIR = obj
+BINDIR = bin
+TESTDIR = tests
 
 # Source files
-SRCS    := $(wildcard *.c)
+SRC = $(wildcard $(SRCDIR)/*.c)
+OBJ = $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
-# Object files
-OBJS    := $(SRCS:.c=.o)
+# Executable names
+LIBFT = libft.a
+TEST_EXEC = $(BINDIR)/test_main
 
-# Header
-INCLUDES := -I.
+# Target to create the library
+$(LIBFT): $(OBJ)
+	ar rcs $@ $^
 
-# Default rule
-all: $(NAME)
+# Target to compile the test program
+$(TEST_EXEC): $(OBJ) $(TESTDIR)/main.c
+	$(CC) $(CFLAGS) -o $@ $^ $(OBJ)
 
-# Build library
-$(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
-	@echo "libft.a created successfully."
+# Compile .c files into .o object files
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Compile objects
-%.o: %.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-# Clean object files
+# Clean object files and executables
 clean:
-	@rm -f $(OBJS)
-	@echo "Object files removed."
+	rm -rf $(OBJDIR) $(BINDIR) $(OBJ)
 
-# Clean everything
+# Remove only the object files
 fclean: clean
-	@rm -f $(NAME)
-	@echo "Library removed."
+	rm -f $(LIBFT) $(TEST_EXEC)
 
 # Rebuild everything
 re: fclean all
 
-# Convenience: not treated as file names
-.PHONY: all clean fclean re
+# Make the library and test program
+all: $(LIBFT) $(TEST_EXEC)
 

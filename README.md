@@ -87,6 +87,45 @@ cc main.c -Llibft -lft
 
 ---
 
+## 🧪 Testing
+
+To ensure the correctness of all functions in the libft library, it is important to conduct thorough testing. A tests directory has been included in the project structure with a main.c file where all the functions can be tested.
+
+Running Tests
+Build the project by running the following command:
+```bash 
+make
+```
+Execute the test program with:
+```bash
+./bin/test_main
+```
+
+This will run all test cases, covering edge cases for each function in the library.
+
+Test Coverage
+Each function from the libft library, including both mandatory and additional functions, will be tested under various conditions, including edge cases such as:
+
+Empty strings.
+
+Special characters.
+
+Boundary cases (e.g., maximum integer values for ft_atoi).
+
+Memory-related functions to ensure no memory leaks (checked with tools like valgrind).
+
+Valid and invalid inputs where applicable.
+
+Valgrind
+To check for memory leaks and invalid memory access during testing, you can run:
+```bash
+valgrind ./bin/test_main
+```
+
+This will output detailed information on any memory-related issues, such as leaks or undefined behavior, helping ensure that the library is free from such problems.
+
+---
+
 ## ✅ Mandatory Functions
 
 Functions that mimic libc functionality, each prefixed with `ft_`:

@@ -1,5 +1,4 @@
-
-#include <stddef.h>
+#include "libft.h"
 
 void *ft_memmove(void *dest, const void *src, size_t n) {
   unsigned char *dest_c;
@@ -17,7 +16,7 @@ void *ft_memmove(void *dest, const void *src, size_t n) {
     }
   } else {
     while (i < ft_strlen(src))
-      dest_c[i] = src[i];
+      dest_c[i] = src_c[i];
     i++;
   }
   return (dest);
