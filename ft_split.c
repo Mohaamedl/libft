@@ -12,90 +12,101 @@
 
 #include "libft.h"
 
-void ft_init(size_t *i, size_t *j, int *word_s);
+void	ft_init(size_t *i, size_t *j, int *word_s);
 
-int ft_wcount(char const *s, char c);
+int		ft_wcount(char const *s, char c);
 
-char *ft_strfill(const char *str, size_t start, size_t end);
+char	*ft_strfill(const char *str, size_t start, size_t end);
 
-void *ft_free(char **str, size_t count);
+void	*ft_free(char **str, size_t count);
 
-char **ft_split(char const *s, char c) {
-  char **words;
-  size_t i;
-  size_t j;
-  int start;
+char	**ft_split(char const *s, char c)
+{
+	char	**words;
+	size_t	i;
+	size_t	j;
+	int		start;
 
-  ft_init(&i, &j, &start);
-  words = ft_calloc(ft_wcount(s, c) + 1, sizeof(char *));
-  if (!words)
-    return (NULL);
-  while (i <= ft_strlen(s)) {
-    if (s[i] != c && start < 0)
-      start = i;
-    else if ((s[i] == c || i == ft_strlen(s)) && start >= 0) {
-      words[j] = ft_strfill(s, start, i);
-      if (!words[j]) {
-        return (ft_free(words, j));
-      }
-      start = -1;
-    }
-    i++;
-  }
-  return (words);
+	ft_init(&i, &j, &start);
+	words = ft_calloc(ft_wcount(s, c) + 1, sizeof(char *));
+	if (!words)
+		return (NULL);
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && start < 0)
+			start = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
+		{
+			words[j] = ft_strfill(s, start, i);
+			if (!words[j])
+				return (ft_free(words, j));
+			start = -1;
+		}
+		i++;
+	}
+	return (words);
 }
 
-void ft_init(size_t *i, size_t *j, int *word_s) {
-  *i = 0;
-  *j = 0;
-  *word_s = -1;
+void	ft_init(size_t *i, size_t *j, int *word_s)
+{
+	*i = 0;
+	*j = 0;
+	*word_s = -1;
 }
 
-int ft_wcount(char const *s, char c) {
-  size_t i;
-  size_t count;
+int	ft_wcount(char const *s, char c)
+{
+	size_t	i;
+	size_t	count;
 
-  if (!s)
-    return (0);
-  i = 0;
-  count = 0;
-  while (*s) {
-    if (*s != c && i == 0) {
-      i = 1;
-      count++;
-    } else if (*s == c)
-      i = 0;
-    s++;
-  }
-  return (count);
+	if (!s)
+		return (0);
+	i = 0;
+	count = 0;
+	while (*s)
+	{
+		if (*s != c && i == 0)
+		{
+			i = 1;
+			count++;
+		}
+		else if (*s == c)
+			i = 0;
+		s++;
+	}
+	return (count);
 }
 
-char *ft_strfill(const char *str, size_t start, size_t end) {
-  char *res;
-  size_t i;
+char	*ft_strfill(const char *str, size_t start, size_t end)
+{
+	char	*res;
+	size_t	i;
 
-  i = 0;
-  res = malloc((end - start + 1) * sizeof(char));
-  if (!res)
-    return (NULL);
-  while (start < end) {
-    res[i] = str[start];
-    i++;
-    start++;
-  }
-  res[i] = 0;
-  return (res);
+	i = 0;
+	res = malloc((end - start + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	while (start < end)
+	{
+		res[i] = str[start];
+		i++;
+		start++;
+	}
+	res[i] = 0;
+	return (res);
 }
 
-void *ft_free(char **str, size_t count) {
-  size_t i;
+void	*ft_free(char **str, size_t count)
+{
+	size_t	i;
 
-  i = 0;
-  while (i < count) {
-    free(str[i++]);
-  }
-  free(str);
-  return (NULL);
+	i = 0;
+	while (i < count)
+	{
+		free(str[i++]);
+	}
+	free(str);
+	return (NULL);
 }
 /*
 #include <stdio.h>

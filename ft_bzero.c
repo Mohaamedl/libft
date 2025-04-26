@@ -15,7 +15,9 @@
 void	ft_bzero(void *s, size_t n)
 {
 	char	*temp;
-	
+
+	if (!s || !n)
+		return ;
 	temp = (char *) s;
 	while (n > 0)
 	{
@@ -33,6 +35,7 @@ int main(void)
 
 	ft_bzero(test, 5);
 	//unsigned char *temp = (unsigned char *) test;
-	printf("This is the output: %s and this is the spected value: DD",(char*) test);
+	printf("This is the output: %s and this is the sp
+	ected value: DD",(char*) test);
 }
 */

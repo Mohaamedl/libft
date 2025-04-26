@@ -1,20 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhaddadi <mhaddadi@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/26 16:57:41 by mhaddadi          #+#    #+#             */
+/*   Updated: 2025/04/26 16:58:59 by mhaddadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t n) {
-  unsigned char *dest_c;
-  unsigned char *src_c;
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*dest_c;
+	unsigned char	*src_c;
 
-  if (dest == (void *)0 && src == (void *)0)
-    return (dest);
-  dest_c = (unsigned char *)dest;
-  src_c = (unsigned char *)src;
-  while (n--) {
-    *(dest_c++) = *(src_c++);
-  }
-  return (dest);
+	if (!dest || !src)
+		return (NULL);
+	dest_c = (unsigned char *) dest;
+	src_c = (unsigned char *) src;
+	while (n > 0)
+	{
+		*(dest_c++) = *(src_c++);
+		n--;
+	}
+	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -43,3 +57,5 @@ int main(void) {
 
   return 0;
 }
+
+*/

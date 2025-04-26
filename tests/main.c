@@ -1,5 +1,4 @@
-/*
-#include "../include/libft.h"
+#include "../libft.h"
 #include <stdio.h>
 
 // Test for ft_atoi
@@ -25,8 +24,7 @@ void test_ft_bzero() {
   ft_bzero(str1, 3);
   printf("Result for bzero(3) on 'Hello': %s\n", str1); // Expected: "Hel"
   ft_bzero(str1, 0);
-  printf("Result for bzero(0): %s\n",
-         str1);      // Expected: "Hel" remains unchanged
+  printf("Result for bzero(0): %s\n", str1);      // Expected: "Hel" remains unchanged
   ft_bzero(NULL, 3); // Edge case: NULL pointer
 }
 
@@ -50,7 +48,7 @@ void test_ft_calloc() {
 void test_ft_isalnum() {
   printf("Testing ft_isalnum:\n");
   // Normal cases
-  printf("Is 'A' alphanumeric? %d\n", ft_isalnum('A'));
+  printf("Is 'A' alphanumeric? %d\n", ft_isalnum(65));
   printf("Is '1' alphanumeric? %d\n", ft_isalnum('1'));
   printf("Is '&' alphanumeric? %d\n", ft_isalnum('&'));
   // Edge cases
@@ -76,7 +74,7 @@ void test_ft_isascii() {
   printf("Testing ft_isascii:\n");
   // Normal cases
   printf("Is 'A' ASCII? %d\n", ft_isascii('A'));
-  printf("Is '€' ASCII? %d\n", ft_isascii('€')); // € is not ASCII
+  //printf("Is '€' ASCII? %d\n", ft_isascii('€')); // € is not ASCII
   // Edge cases
   printf("Is 127 ASCII? %d\n", ft_isascii(127)); // ASCII upper limit
   printf("Is -1 ASCII? %d\n", ft_isascii(-1));   // Below ASCII range
@@ -168,7 +166,8 @@ void test_ft_memmove() {
   printf("memmove result: %s\n", str); // Expected: "Hello Hello"
   // Edge cases
   ft_memmove(NULL, str, 5); // NULL destination
-  ft_memmove(str, NULL, 5); // NULL source
+	ft_memmove(str, NULL, 5); // NULL source
+
 }
 
 // Test for ft_memset
@@ -249,7 +248,7 @@ void test_ft_strchr() {
   printf("Testing ft_strchr:\n");
   char *result = ft_strchr("Hello World", 'o');
   printf("Found 'o' at position: %ld\n", result - "Hello World");
-  // Edge case
+	// Edge case
   result = ft_strchr("Hello", 'z');
   if (result)
     printf("Found 'z' at position: %ld\n", result - "Hello");
@@ -269,11 +268,18 @@ void test_ft_strdup() {
   free(dup);
 }
 
+void	to_upper_with_index_even(unsigned int i, char *c)
+{
+	if ((i + 1) % 2 == 0)
+		*c = (*c >= 'a' && *c <= 'z') ? *c - 32 : *c;
+}
+
+
 // Test for ft_striteri
 void test_ft_striteri() {
   printf("Testing ft_striteri:\n");
   char str[] = "Hello";
-  ft_striteri(str, [](unsigned int i, char *c) { *c = *c + i; });
+  ft_striteri(str, to_upper_with_index_even);
   printf("str after striteri: %s\n",
          str); // Expected output based on function logic
 }
@@ -321,14 +327,20 @@ void test_ft_strlen() {
   printf("Length of empty string: %zu\n", ft_strlen(""));
 }
 
+char	to_upper_with_index(unsigned int i, char c)
+{
+	(void) i;
+	return ft_toupper(c);
+}
+
 // Test for ft_strmapi
 void test_ft_strmapi() {
   printf("Testing ft_strmapi:\n");
   char *result =
-      ft_strmapi("Hello", [](unsigned int i, char c) { return c + i; });
+      ft_strmapi("Hello", to_upper_with_index);
   printf("Result after strmapi: %s\n", result);
   free(result);
-  result = ft_strmapi("", [](unsigned int i, char c) { return c + i; });
+  result = ft_strmapi("", to_upper_with_index);
   printf("Result after strmapi on empty string: %s\n", result); // Expected: ""
   free(result);
 }
@@ -347,12 +359,14 @@ void test_ft_strnstr() {
   printf("Testing ft_strnstr:\n");
   char *result = ft_strnstr("Hello World", "World", 11);
   printf("Found 'World' at position: %ld\n", result - "Hello World");
-  // Edge case
+  
+	// Edge case
   result = ft_strnstr("Hello", "World", 5);
   if (result)
     printf("Found 'World': %s\n", result);
   else
     printf("'World' not found.\n");
+
 }
 
 // Test for ft_strrchr
@@ -360,6 +374,7 @@ void test_ft_strrchr() {
   printf("Testing ft_strrchr:\n");
   char *result = ft_strrchr("Hello World", 'o');
   printf("Last 'o' found at position: %ld\n", result - "Hello World");
+
 }
 
 // Test for ft_strtrim
@@ -387,13 +402,84 @@ void test_ft_tolower() {
   printf("ft_tolower('A') = %c\n", ft_tolower('A'));
   printf("ft_tolower('z') = %c\n", ft_tolower('z'));
 }
-
+ 
 // Test for ft_toupper
 void test_ft_toupper() {
   printf("Testing ft_toupper:\n");
   printf("ft_toupper('a') = %c\n", ft_toupper('a'));
   printf("ft_toupper('Z') = %c\n", ft_toupper('Z'));
 }
+
+void print_list(t_list *lst) {
+  printf("List: ");
+  while (lst) {
+    printf("%d -> ", *(int *)lst->content);
+    lst = lst->next;
+  }
+  printf("NULL\n");
+}
+
+void increment(void *content) {
+  if (content)
+    (*(int *)content)++;
+}
+
+void *duplicate(void *content) {
+  int *new = malloc(sizeof(int));
+  if (!new)
+    return (NULL);
+  *new = *(int *)content;
+  return (new);
+}
+
+void delete(void *content) { free(content); }
+
+int test_list(void) {
+  t_list *lst = NULL;
+  t_list *map_lst = NULL;
+  int *i;
+
+  for (int j = 1; j <= 5; j++) {
+    i = malloc(sizeof(int));
+    *i = j;
+    ft_lstadd_front(&lst, ft_lstnew(i));
+  }
+
+  printf("after ft_lstadd_front:\n");
+  print_list(lst);
+
+  printf("list size: %d\n", ft_lstsize(lst));
+
+  t_list *last = ft_lstlast(lst);
+  printf("Last element: %d\n", *(int *)last->content);
+
+  int *val = malloc(sizeof(int));
+  *val = 41;
+  ft_lstadd_back(&lst, ft_lstnew(val));
+  printf("After ft_lstadd_back:\n");
+  print_list(lst);
+
+  ft_lstiter(lst, increment);
+  printf("After ft_lstiter:\n");
+  print_list(lst);
+
+  map_lst = ft_lstmap(lst, duplicate, delete);
+  printf("Maped list:\n");
+  print_list(map_lst);
+  printf("Original list:\n");
+  print_list(lst);
+
+  ft_lstclear(&lst, delete);
+  ft_lstclear(&map_lst, delete);
+
+  if (!lst && !map_lst)
+    printf("Lists succecfuly cleaned.\n");
+
+  return (0);
+}
+
+
+
 
 int main() {
   test_ft_atoi();
@@ -430,6 +516,7 @@ int main() {
   test_ft_substr();
   test_ft_tolower();
   test_ft_toupper();
-  return 0;
+  test_list();
+	return 0;
 }
-*/
+

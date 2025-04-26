@@ -1,30 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhaddadi <mhaddadi@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/26 16:26:30 by mhaddadi          #+#    #+#             */
+/*   Updated: 2025/04/26 16:28:41 by mhaddadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t ft_strlen(const char *s) {
-  size_t i = 0;
-  while (s[i])
-    i++;
-  return i;
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	unsigned int	i;
+	char			*res;
+
+	if (!s || !f)
+		return (NULL);
+	res = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		res[i] = f(i, s[i]);
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }
-
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char)) {
-  unsigned int i;
-  char *res;
-
-  if (!s || !f)
-    return NULL;
-  res = malloc((ft_strlen(s) + 1) * sizeof(char));
-  if (!res)
-    return NULL;
-  i = 0;
-  while (s[i]) {
-    res[i] = f(i, s[i]);
-    i++;
-  }
-  res[i] = '\0';
-  return (res);
-}
-
+/*
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,4 +54,4 @@ int main(void) {
   }
 
   return 0;
-}
+}*/

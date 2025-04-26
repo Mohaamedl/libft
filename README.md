@@ -98,7 +98,7 @@ make
 ```
 Execute the test program with:
 ```bash
-./bin/test_main
+./tests/main
 ```
 
 This will run all test cases, covering edge cases for each function in the library.
@@ -216,8 +216,8 @@ Functions to be implemented once the mandatory part is completed. These typicall
 - [x] Implement `ft_strtrim`
 - [x] Implement `ft_split`
 - [x] Implement `ft_itoa`
-- [ ] Implement `ft_strmapi`
-- [ ] Implement `ft_striteri`
+- [x] Implement `ft_strmapi`
+- [x] Implement `ft_striteri`
 - [x] Implement `ft_putchar_fd`
 - [x] Implement `ft_putstr_fd`
 - [x] Implement `ft_putendl_fd`
@@ -232,7 +232,7 @@ Functions to be implemented once the mandatory part is completed. These typicall
 - [x] Implement `ft_lstdelone`
 - [x] Implement `ft_lstclear`
 - [x] Implement `ft_lstiter`
-- [ ] Implement `ft_lstmap`
+- [x] Implement `ft_lstmap`
 
 ### Final Steps
 - [ ] Test all functions with libft-unit-test / francinette (?)
