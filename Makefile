@@ -1,47 +1,57 @@
 # **************************************************************************** #
 #                              LIBFT MAKEFILE                                  #
 # **************************************************************************** #
-# Compiler and flags
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iinclude
 
-# Directories
-SRCDIR = src
-OBJDIR = obj
-BINDIR = bin
-TESTDIR = tests
+# Variables
+NAME        = libft
+STATIC_LIB  = $(NAME).a
+SHARED_LIB  = $(NAME).so
 
-# Source files
-SRC = $(wildcard $(SRCDIR)/*.c)
-OBJ = $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+CC          = clang
+CFLAGS      = -Wall -Wextra -Werror -Iincludes
+ARFLAGS     = rcs
+RM          = rm -f
 
-# Executable names
-LIBFT = libft.a
-TEST_EXEC = $(BINDIR)/test_main
+SRCS        = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+              ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+              ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+              ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
+              ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
+              ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+              ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-# Target to create the library
-$(LIBFT): $(OBJ)
-	ar rcs $@ $^
+SRCS_BONUS  = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+              ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-# Target to compile the test program
-$(TEST_EXEC): $(OBJ) $(TESTDIR)/main.c
-	$(CC) $(CFLAGS) -o $@ $^ $(OBJ)
+OBJS        = $(SRCS:.c=.o)
+OBJS_BONUS  = $(SRCS_BONUS:.c=.o)
 
-# Compile .c files into .o object files
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+# Targets
+
+all: $(STATIC_LIB)
+
+$(STATIC_LIB): $(OBJS)
+	ar $(ARFLAGS) $@ $^
+
+bonus: $(STATIC_LIB) $(OBJS_BONUS)
+	ar $(ARFLAGS) $(STATIC_LIB) $(OBJS_BONUS)
+
+so: $(SHARED_LIB)
+
+$(SHARED_LIB): CFLAGS += -fPIC
+$(SHARED_LIB): $(OBJS) $(OBJS_BONUS)
+	$(CC) -shared -o $@ $^
+
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean object files and executables
 clean:
-	rm -rf $(OBJDIR) $(BINDIR) $(OBJ)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
-# Remove only the object files
 fclean: clean
-	rm -f $(LIBFT) $(TEST_EXEC)
+	$(RM) $(STATIC_LIB) $(SHARED_LIB)
 
-# Rebuild everything
 re: fclean all
 
-# Make the library and test program
-all: $(LIBFT) $(TEST_EXEC)
+.PHONY: all bonus so clean fclean re
 

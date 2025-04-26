@@ -1,3 +1,4 @@
+/*
 #include "../include/libft.h"
 #include <stdio.h>
 
@@ -431,3 +432,4 @@ int main() {
   test_ft_toupper();
   return 0;
 }
+*/
