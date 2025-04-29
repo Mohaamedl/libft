@@ -504,9 +504,7 @@ int main() {
   test_ft_isalpha();
   test_ft_isascii();
   test_ft_isdigit();
-	*/
   test_ft_itoa();
-  /*
 	test_ft_lstnew();
   test_ft_memchr();
   test_ft_memcmp();
@@ -517,9 +515,7 @@ int main() {
   test_ft_putendl_fd();
   test_ft_putnbr_fd();
   test_ft_putstr_fd();
-	*/ 
   test_ft_split();
-	/*
   test_ft_strchr();
   test_ft_strdup();
   test_ft_striteri();
@@ -535,8 +531,9 @@ int main() {
   test_ft_substr();
   test_ft_tolower();
   test_ft_toupper();
+  */
   test_list();
-	*/
+
 	return 0;
 }
 
