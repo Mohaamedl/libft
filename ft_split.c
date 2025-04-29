@@ -14,7 +14,7 @@
 
 static void	ft_init(size_t *i, size_t *j, int *word_s);
 
-static int		ft_wcount(char const *s, char c);
+static int	ft_wcount(char const *s, char c);
 
 static char	*ft_strfill(const char *str, size_t start, size_t end);
 

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_countsize(int n);
+static int	ft_countsize(int n);
 
 char	*ft_itoa(int n)
 {
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-int	ft_countsize(int n)
+static int	ft_countsize(int n)
 {
 	int	count;
 
