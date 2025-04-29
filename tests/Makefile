@@ -17,7 +17,7 @@
 NAME        := test_libft
 LIBFT_DIR   := ../
 LIBFT       := $(LIBFT_DIR)libft.a
-SRC         := main.c
+SRC         := test_libft.c
 CC          := gcc
 CFLAGS      := -Wall -Wextra -Werror
 INCLUDES    := -I$(LIBFT_DIR)

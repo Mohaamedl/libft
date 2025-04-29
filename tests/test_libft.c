@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+
 #include "../libft.h"
 #include <stdio.h>
 
@@ -232,7 +232,8 @@ void test_ft_putstr_fd() {
 // Test for ft_split
 void test_ft_split() {
   printf("Testing ft_split:\n");
-  char **result = ft_split("Hello World 42", ' ');
+  char **result = ft_split("This4should4be4printed4one4per44line444as4you444can44444444see44444here444444444444",
+						   '4');
   for (int i = 0; result[i]; i++) {
     printf("split[%d] = %s\n", i, result[i]);
     free(result[i]);
@@ -495,15 +496,18 @@ int test_list(void) {
 
 
 int main() {
-  test_ft_atoi();
+  /*
+	test_ft_atoi();
   test_ft_bzero();
   test_ft_calloc();
   test_ft_isalnum();
   test_ft_isalpha();
   test_ft_isascii();
   test_ft_isdigit();
+	*/
   test_ft_itoa();
-  test_ft_lstnew();
+  /*
+	test_ft_lstnew();
   test_ft_memchr();
   test_ft_memcmp();
   test_ft_memcpy();
@@ -513,7 +517,9 @@ int main() {
   test_ft_putendl_fd();
   test_ft_putnbr_fd();
   test_ft_putstr_fd();
+	*/ 
   test_ft_split();
+	/*
   test_ft_strchr();
   test_ft_strdup();
   test_ft_striteri();
@@ -530,6 +536,7 @@ int main() {
   test_ft_tolower();
   test_ft_toupper();
   test_list();
+	*/
 	return 0;
 }
-*/
+

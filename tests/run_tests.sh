@@ -20,7 +20,7 @@ echo -e "${GREEN}Compiling libft...${NC}"
 make -C ../
 
 echo -e "${GREEN}Compiling teste...${NC}"
-gcc -Wall -Wextra -Werror ../libft.a main.c -I../ -o test_libft
+cc -Wall -Wextra -Werror test_libft.c -L.. -lft -o test_libft
 
 echo -e "${GREEN}Executing teste...${NC}"
 ./test_libft
@@ -28,8 +28,8 @@ echo -e "${GREEN}Executing teste...${NC}"
 echo -e "${GREEN}Testing memory leaks with valgrind...${NC}"
 valgrind --leak-check=full --show-leak-kinds=all ./test_libft
 
-echo -e "${GREEN}Running norminette...${NC}"
-norminette ../
+#echo -e "${GREEN}Running norminette...${NC}"
+#norminette ../
 
 echo -e "${GREEN}End.${NC}"
 

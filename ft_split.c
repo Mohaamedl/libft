@@ -31,7 +31,7 @@ char	**ft_split(char const *s, char c)
 	words = ft_calloc(ft_wcount(s, c) + 1, sizeof(char *));
 	if (!words)
 		return (NULL);
-	while (i < ft_strlen(s))
+	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && start < 0)
 			start = i;
@@ -41,6 +41,7 @@ char	**ft_split(char const *s, char c)
 			if (!words[j])
 				return (ft_free(words, j));
 			start = -1;
+			j++;
 		}
 		i++;
 	}
