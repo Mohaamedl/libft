@@ -9,8 +9,8 @@
 /*   Updated: 2025/04/27 10:47:42 by mhaddadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
+/*
+ *
 #include "../libft.h"
 #include <stdio.h>
 
@@ -232,7 +232,8 @@ void test_ft_putstr_fd() {
 // Test for ft_split
 void test_ft_split() {
   printf("Testing ft_split:\n");
-  char **result = ft_split("This4should4be4printed4one4per44line444as4you444can44444444see44444here444444444444",
+  char **result = ft_split("This4should4be4printed4one4per44
+  line444as4you444can44444444see44444here444444444444",
 						   '4');
   for (int i = 0; result[i]; i++) {
     printf("split[%d] = %s\n", i, result[i]);
@@ -496,7 +497,7 @@ int test_list(void) {
 
 
 int main() {
-  /*
+  
 	test_ft_atoi();
   test_ft_bzero();
   test_ft_calloc();
@@ -531,9 +532,9 @@ int main() {
   test_ft_substr();
   test_ft_tolower();
   test_ft_toupper();
-  */
+  
   test_list();
 
 	return 0;
 }
-
+*/

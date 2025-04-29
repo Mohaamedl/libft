@@ -6,7 +6,7 @@
 /*   By: mhaddadi <mhaddadi@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 16:13:30 by mhaddadi          #+#    #+#             */
-/*   Updated: 2025/04/26 16:18:15 by mhaddadi         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:54:01 by mhaddadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	start;
 	size_t	end;
-	char		*str;
+	char	*str;
 
 	start = 0;
 	while (s1[start] && ft_in_set(s1[start], set))
-		start++; 
+		start++;
 	end = ft_strlen(s1);
 	while (end > start && ft_in_set(s1[end - 1], set))
 		end--;
