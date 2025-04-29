@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhaddadi <mhaddadi@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/27 10:47:26 by mhaddadi          #+#    #+#             */
+/*   Updated: 2025/04/27 10:47:42 by mhaddadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*
 #include "../libft.h"
 #include <stdio.h>
 
@@ -24,7 +37,7 @@ void test_ft_bzero() {
   ft_bzero(str1, 3);
   printf("Result for bzero(3) on 'Hello': %s\n", str1); // Expected: "Hel"
   ft_bzero(str1, 0);
-  printf("Result for bzero(0): %s\n", str1);      // Expected: "Hel" remains unchanged
+  printf("Result for bzero(0): %s\n", str1);// Expected:"Hel" remains unchanged
   ft_bzero(NULL, 3); // Edge case: NULL pointer
 }
 
@@ -519,4 +532,4 @@ int main() {
   test_list();
 	return 0;
 }
-
+*/

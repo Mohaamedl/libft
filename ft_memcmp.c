@@ -18,7 +18,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	unsigned char	*s2_c;
 	size_t			i;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 	{
 		return (0);
 	}

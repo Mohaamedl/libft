@@ -1,11 +1,21 @@
 # **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhaddadi <mhaddadi@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/27 09:11:07 by mhaddadi          #+#    #+#              #
+#    Updated: 2025/04/27 09:11:16 by mhaddadi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
 #                              LIBFT MAKEFILE                                  #
 # **************************************************************************** #
 
 # Variables
-NAME        = libft
-STATIC_LIB  = $(NAME).a
-SHARED_LIB  = $(NAME).so
+NAME        = libft.a
 
 CC          = clang
 CFLAGS      = -Wall -Wextra -Werror -Iincludes
@@ -28,28 +38,28 @@ OBJS_BONUS  = $(SRCS_BONUS:.c=.o)
 
 # Targets
 
-all: $(STATIC_LIB)
+all: $(NAME)
 
-$(STATIC_LIB): $(OBJS)
+$(NAME): $(OBJS)
 	ar $(ARFLAGS) $@ $^
 
-bonus: $(STATIC_LIB) $(OBJS_BONUS)
-	ar $(ARFLAGS) $(STATIC_LIB) $(OBJS_BONUS)
+bonus: $(NAME) $(OBJS_BONUS)
+	ar $(ARFLAGS) $(NAME) $(OBJS_BONUS)
 
-so: $(SHARED_LIB)
+#so: $(SHARED_LIB)
 
-$(SHARED_LIB): CFLAGS += -fPIC
-$(SHARED_LIB): $(OBJS) $(OBJS_BONUS)
-	$(CC) -shared -o $@ $^
+#$(SHARED_LIB): CFLAGS += -fPIC
+#$(SHARED_LIB): $(OBJS) $(OBJS_BONUS)
+#	$(CC) -shared -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+#%.o: %.c
+#	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	$(RM) $(STATIC_LIB) $(SHARED_LIB)
+	$(RM) $(NAME)
 
 re: fclean all
 

@@ -15,13 +15,14 @@
 void	*ft_calloc(size_t n, size_t size)
 {
 	unsigned char	*temp;
-	size_t			i;
+	//size_t	i;
 
-	i = 0;
+	//i = 0;
 	temp = malloc(n * size);
 	if (!temp)
 		return (NULL);
-	while (i < n * size)
-		temp[i++] = 0;
+	//while (i < n * size)
+	//	temp[i++] = 0;
+	ft_bzero(temp,n*size);
 	return (temp);
 }

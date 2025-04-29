@@ -14,22 +14,24 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
-	size_t	i;
-	size_t	len;
+	size_t	src_len;
+	size_t	dest_len;
 
-	if (n == 0)
-		return (0);
-	len = 0;
-	while (src[len])
+	src_len = ft_strlen(src);
+	dest_len = ft_strlen(dest);
+
+	if (n <= dest_len)
+		dest_len = n;
+	if (dest_len == n)
+		return (dest_len + src_len);
+	if ((src_len + dest_len) < n)
+		ft_memcpy(dest + dest_len, src, src_len + 1);
+	else
 	{
-		len++;
+		ft_memcpy(dest + dest_len, src, n - dest_len - 1);
+		dest[n - 1] = '\0';
 	}
-	i = 0;
-	while (i < n && src[len + i])
-	{
-		dest[len + i] = src[i];
-	}
-	return (i);
+	return (src_len + dest_len);
 }
 /*
 #include <string.h>
