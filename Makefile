@@ -18,7 +18,7 @@
 NAME				= libft.a
 
 CC					= cc
-CFLAGS			=	-Wall -Wextra -Werror -Iincludes
+CFLAGS			=	-Wall -Wextra -Werror
 ARFLAGS			= rcs
 RM					= rm -f
 # Sources
@@ -33,7 +33,8 @@ SRCS				= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 # Bonus part sources
 
 SRCS_BONUS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-							ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+							ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+							ft_lstmap.c
 
 OBJS        = $(SRCS:.c=.o)
 OBJS_BONUS  = $(SRCS_BONUS:.c=.o)
@@ -44,6 +45,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar $(ARFLAGS) $@ $^
+
+%.o : %.c
+	$(CC) -c $(CFLAGS) $^ -o $@ 
 
 bonus: $(NAME) $(OBJS_BONUS)
 	ar $(ARFLAGS) $(NAME) $(OBJS_BONUS)
@@ -57,4 +61,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all bonus clean fclean re
-

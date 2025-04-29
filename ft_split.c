@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-void	ft_init(size_t *i, size_t *j, int *word_s);
+static void	ft_init(size_t *i, size_t *j, int *word_s);
 
-int		ft_wcount(char const *s, char c);
+static int		ft_wcount(char const *s, char c);
 
-char	*ft_strfill(const char *str, size_t start, size_t end);
+static char	*ft_strfill(const char *str, size_t start, size_t end);
 
-void	*ft_free(char **str, size_t count);
+static void	*ft_free(char **str, size_t count);
 
 char	**ft_split(char const *s, char c)
 {
@@ -48,14 +48,14 @@ char	**ft_split(char const *s, char c)
 	return (words);
 }
 
-void	ft_init(size_t *i, size_t *j, int *word_s)
+static void	ft_init(size_t *i, size_t *j, int *word_s)
 {
 	*i = 0;
 	*j = 0;
 	*word_s = -1;
 }
 
-int	ft_wcount(char const *s, char c)
+static int	ft_wcount(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -78,7 +78,7 @@ int	ft_wcount(char const *s, char c)
 	return (count);
 }
 
-char	*ft_strfill(const char *str, size_t start, size_t end)
+static char	*ft_strfill(const char *str, size_t start, size_t end)
 {
 	char	*res;
 	size_t	i;
@@ -97,7 +97,7 @@ char	*ft_strfill(const char *str, size_t start, size_t end)
 	return (res);
 }
 
-void	*ft_free(char **str, size_t count)
+static void	*ft_free(char **str, size_t count)
 {
 	size_t	i;
 
