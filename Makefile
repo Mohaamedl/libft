@@ -87,12 +87,12 @@ SRC_PRINTF = \
 	$(SRC_DIR)/ft_printf/ft_hex_helper.c
 
 SRC_GNL = \
-	$(SRC_DIR)/getnextline/get_next_line.c \
-	$(SRC_DIR)/getnextline/get_next_line_utils.c
+	$(SRC_DIR)/gnl/get_next_line.c \
+	$(SRC_DIR)/gnl/get_next_line_utils.c
 
 SRC_BONUS = \
-	$(SRC_DIR)/getnextline/get_next_line_bonus.c \
-	$(SRC_DIR)/getnextline/get_next_line_utils_bonus.c
+	$(SRC_DIR)/gnl/get_next_line_bonus.c \
+	$(SRC_DIR)/gnl/get_next_line_utils_bonus.c
 
 SRC = $(SRC_LIBFT) $(SRC_PRINTF) $(SRC_GNL)
 
